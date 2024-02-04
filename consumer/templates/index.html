@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Object detection and Multi Video Streaming</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyetFLm82S/AgIUcZihfaWAgJZtuI5YbwEW" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <link
+      href="//mincss.com/entireframework.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="{{url_for('static', filename = 'css/app.css')}}" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/app.js') }}"></script>
+    <div class="container mt-5">
+      <h1>Multi Video Streaming and Object detection </h1>
+      <h2>    with Confluent Kafka(base), TorchServe(Onnx),Flask, docker-compose, Mongodb in AWS EC2 </h2>
+      <div id="image-container0" class="image-container">
+        <h1>video 0</h1>
+      </div>
+      <div id="image-container1" class="image-container">
+        <h1>video 1</h1>
+      </div>
+      <div id="image-container2" class="image-container">
+        <h1>video 2</h1>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-path: /home/ajith/projects/Multivideo_Objectdetection_MLOPS_Project
+path: /app
 train: artifacts/data_ingestion/dataset/train/images
 val: artifacts/data_ingestion/dataset/valid/images
 test: artifacts/data_ingestion/dataset/test/images

@@ -1,0 +1,1 @@
+torchserve --start --ncs --model-store torchserve/model-store --models yolov8n=yolov8n.mar --ts-config torchserve/config.properties & python3 consumer/app.py
