@@ -1,0 +1,95 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/objectDetection/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 4e825707016741f619f7e5fb2095309e
+      size: 592
+    - path: src/objectDetection/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: bc8baf38854b0b8545245f113806805a
+      size: 868
+    outs:
+    - path: artifacts/data_ingestion/dataset.zip
+      hash: md5
+      md5: fce5fe6e1dee086fe1e9b257b5cf4bce
+      size: 54891690
+  prepare_base_model:
+    cmd: python src/objectDetection/pipeline/stage_02_prepare_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 4e825707016741f619f7e5fb2095309e
+      size: 592
+    - path: src/objectDetection/pipeline/stage_02_prepare_base_model.py
+      hash: md5
+      md5: ccb7a3b4a5708e1e7199711f7691e65a
+      size: 926
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 013d40e4c1905e93d28cf8b1d2ab7010.dir
+      size: 6534387
+      nfiles: 1
+  training:
+    cmd: python src/objectDetection/pipeline/stage_03_training.py
+    deps:
+    - path: artifacts/data_ingestion/dataset.zip
+      hash: md5
+      md5: fce5fe6e1dee086fe1e9b257b5cf4bce
+      size: 54891690
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 013d40e4c1905e93d28cf8b1d2ab7010.dir
+      size: 6534387
+      nfiles: 1
+    - path: config/config.yaml
+      hash: md5
+      md5: 4e825707016741f619f7e5fb2095309e
+      size: 592
+    - path: src/objectDetection/pipeline/stage_03_training.py
+      hash: md5
+      md5: e44790cae2ca1188e642fc4ab6764c7d
+      size: 837
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        EPOCHS: 1
+    outs:
+    - path: artifacts/training/model.pt
+      hash: md5
+      md5: e4c41d1b35d85ba89f7efc0516638e2f
+      size: 6206937
+  evaluation:
+    cmd: python src/objectDetection/pipeline/stage_04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/dataset.zip
+      hash: md5
+      md5: fce5fe6e1dee086fe1e9b257b5cf4bce
+      size: 54891690
+    - path: artifacts/training/model.pt
+      hash: md5
+      md5: e4c41d1b35d85ba89f7efc0516638e2f
+      size: 6206937
+    - path: config/config.yaml
+      hash: md5
+      md5: 4e825707016741f619f7e5fb2095309e
+      size: 592
+    - path: src/objectDetection/pipeline/stage_04_evaluation.py
+      hash: md5
+      md5: 70d6c2385e972fdd304c542c0d90b67a
+      size: 875
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: 64f13216ae3e6afafb1723e3fb109a62
+      size: 226
+    - path: torchserve/models/detection.onnx
+      hash: md5
+      md5: 582e4071e8b017a5fe3025e8ee673dff
+      size: 12115339

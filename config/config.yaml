@@ -1,0 +1,17 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/ajithvcoder/Multivideo_Objectdetection_MLOPS_Project/raw/main/data/dataset.zip
+  local_data_file: artifacts/data_ingestion/dataset.zip
+  unzip_dir: artifacts/data_ingestion
+
+prepare_base_model:
+  root_dir: artifacts/prepare_base_model
+  base_model_path: artifacts/prepare_base_model/base_model.pt
+
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/model.pt
+  data_yaml_path: dataset.yaml
+  best_model_path: artifacts/training/train/weights/best.pt

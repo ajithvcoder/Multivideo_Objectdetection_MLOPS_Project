@@ -1,0 +1,14 @@
+path: /home/ajith/projects/Multivideo_Objectdetection_MLOPS_Project
+train: artifacts/data_ingestion/dataset/train/images
+val: artifacts/data_ingestion/dataset/valid/images
+test: artifacts/data_ingestion/dataset/test/images
+
+nc: 5
+names: ['bicycle', 'bus', 'car', 'motorbike', 'person']
+
+roboflow:
+  workspace: fsmvu
+  project: street-view-gdogo
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fsmvu/street-view-gdogo/dataset/1
