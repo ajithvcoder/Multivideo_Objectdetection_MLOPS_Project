@@ -2,6 +2,12 @@
 
 <img src="./assets/snap_multivideostreaming.png" width="500" height="300" title="Object detection">
 
+**Description** 
+
+I am having a set of videos and kafka producer is taking and passing to kafka server then consumer consumes it. The consumer has torchserve part and then objects are detected by it and then stored in mongo db.
+
+**its offline streaming project not real time streaming.** but can be made as real time streaming with modifications in producer part
+
 ### Procedure
     docker network create kafka-network
 
@@ -51,6 +57,10 @@ if you use a better model with good dataset it can predict quality will be incre
 - AWS EC2
 
 - Kindly change the epochs in params.yaml file to 60 and then replace "trained_model_60epoch.onnx" with "detection.onnx" in Dockerfile for  using the model training with dvc repro. I dont have a gpu so i trained in colab and placed "trained_model_60epoch.onnx" file in git already.
+
+- Kafka part can also be improved 
+
+- In comming days i will try to create and explain part by part example how kafka producer and consumer commincates, how torchserve serves, etc in detail
 
 ## Github CI/CD
 - it seems that docker compose with github CI/CD is not possible but you can always create more docker containers with [this type](https://github.com/ajithvcoder/Spaceship_Titanic_MLOps_Project/blob/main/.github/workflows/main.yaml) of CI/CD pipeline feel free to explore it 
