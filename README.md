@@ -1,5 +1,7 @@
 # Multivideo_Objectdetection_MLOPS_Project
 
+**Youtube Playlist** : [Link here](https://www.youtube.com/playlist?list=PLaiyLZ9Xs1bzsHfMhjTSJD9Jfj2VwBXZU)
+
 <img src="./assets/snap_multivideostreaming.png" width="500" height="300" title="Object detection">
 
 **Description** 
